@@ -1,26 +1,20 @@
-import telebot, os
-TOKEN=os.getenv("BOT_TOKEN")
-bot=telebot.TeleBot(TOKEN)
-
-@bot.message_handler(commands=['start'])
-def start(m):
-    bot.send_message(m.chat.id, "🔥 BIENVENUE PRONOFIABLE BOT 🤖\n\n/vip - Offre VIP\n/clasico - Barca vs Real\n/prono - Prono du jour\n/combine - Combine du jour 2.09")
-
-@bot.message_handler(commands=['vip'])
-def vip(m):
-    bot.send_photo(m.chat.id, open('vip.jpg','rb'), caption="💎 OFFRE VIP PRONOFIABLE\nAccès à TOUS les pronos IA ! 👉 @Pronofiable")
-
-@bot.message_handler(commands=['clasico'])
-def clasico(m):
-    bot.send_photo(m.chat.id, open('buts.jpg','rb'), caption="⚽ EL CLASICO - Scores exacts dans le VIP 👑")
-
-@bot.message_handler(commands=['prono'])
-def prono(m):
-    bot.send_message(m.chat.id, "🤖 IA PRONOFIABLE :\n✅ Real ou Nul\n✅ BTTS\n✅ Over 2.5 buts")
-
-@bot.message_handler(commands=['combine'])
-def combine(m):
-    bot.send_photo(m.chat.id, open('combine.jpg','rb'), caption="🔥 COMBINE DU JOUR - COTE 2.09\n✅ Analyse IA 100% validée\nRejoins le VIP 👑 @Pronofiable")
-
-print("Bot lance...")
-bot.infinity_polling()
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PRONOFIABLE</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#0a0a0f;color:#fff;padding-bottom:80px}.header{background:#111118;padding:15px;display:flex;justify-content:space-between;border-bottom:2px solid #d4af37;position:sticky;top:0}.logo{color:#d4af37;font-weight:900}.live-bar{background:#1a1a24;display:flex;gap:10px;padding:10px;overflow-x:auto;font-size:12px}.live-item{background:#232330;padding:8px 12px;border-radius:8px;border:1px solid #333}.section{padding:15px}.card{background:#1a1a24;border:1px solid #2a2a3a;border-radius:12px;padding:14px;margin-bottom:12px}.achat{background:#4ade80;color:#000;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800}.vente{background:#ff6b6b;color:#fff;padding:3px 10px;border-radius:20px;font-size:11px}.gain{color:#4ade80;font-weight:700}.price{font-size:22px;color:#d4af37;font-weight:900}.btn-gold{background:linear-gradient(90deg,#d4af37,#f5d76e);color:#000;border:none;padding:14px;width:100%;border-radius:10px;font-weight:900;font-size:16px;margin-top:10px}.nav{position:fixed;bottom:0;left:0;right:0;background:#111118;border-top:1px solid #2a2a3a;display:flex;justify-content:space-around;padding:10px 0}.nav-item{font-size:11px;color:#888;text-align:center}.nav-item.active{color:#d4af37}.hidden{display:none}input{width:100%;padding:12px;background:#0a0a0f;border:1px solid #333;border-radius:8px;color:#fff;margin:8px 0}</style></head><body>
+<div class="header"><div class="logo">👑 PRONOFIABLE</div><div>VIP</div></div>
+<div class="live-bar"><div class="live-item">LIVE PSG 2-1 LYON</div><div class="live-item">LIVE MCI 1-0 ARS</div></div>
+<div id="accueil"><div class="section">
+<h3>Signaux du Jour ✨</h3>
+<div class="card" style="border-left:4px solid #4ade80"><span class="achat">ACHAT</span> <b>PSG / +1.5 Buts</b><div style="font-size:12px;color:#aaa">85% confiance • 18:00 <span class="gain">+8%</span></div></div>
+<div class="card" style="border-left:4px solid #ff6b6b"><span class="vente">VENTE</span> <b>LYON / -2.5 Corners</b><div style="font-size:12px;color:#aaa">72% confiance</div></div>
+<div class="card"><b>💼 Bankroll 25.000F</b><div style="font-size:28px;font-weight:900">25.000F</div><div style="color:#4ade80">↑ +12% Profit +2.700F</div></div>
+<div class="card" style="border:1px solid #d4af37"><b>🎯 Combiné 2.09</b><div style="font-size:13px;margin-top:8px">Neftchi - Ittihad: X2 @1.25<br>Qadisiyah - Al Sadd: -4.5 @1.23<br>Ahli - Gharafa: 1X @1.06<br>Santa Clara - Benfica: +1.5 @1.19<br>PSG - Lyon: +1.5 @1.08<br><b style="color:#d4af37">Cote totale: 2.09</b></div><button class="btn-gold" onclick="showPage('vip')">🔒 Devenir VIP</button></div>
+</div></div>
+<div id="vip" class="hidden"><div class="section"><h2>VIP PREMIUM</h2>
+<div class="card" style="border:1px solid #d4af37"><b>Hebdo</b><div class="price">5.000F / sem</div>3-5 combinés/jour</div>
+<div class="card" style="border:1px solid #d4af37"><b>Mensuel POPULAIRE</b><div class="price">15.000F / mois</div>Analyses + Live</div>
+<div class="card" style="border:1px solid #d4af37"><b>Annuel -40%</b><div class="price">100.000F / an</div>Tout inclus 24/7</div>
+<button class="btn-gold" onclick="document.getElementById('pay').classList.toggle('hidden')">S'ABONNER</button>
+<div id="pay" class="card hidden"><input placeholder="Nom"><input placeholder="Numéro Wave / MTN"><button class="btn-gold" onclick="alert('✅ Demande envoyée ! Lien VIP sur WhatsApp')">PAYER</button></div>
+</div></div>
+<div class="nav"><div class="nav-item active" onclick="showPage('accueil',this)">🏠<br>Accueil</div><div class="nav-item" onclick="showPage('vip',this)">👑<br>VIP</div></div>
+<script>function showPage(id,el){document.getElementById('accueil').classList.add('hidden');document.getElementById('vip').classList.add('hidden');document.getElementById(id).classList.remove('hidden');if(el){document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));el.classList.add('active');}}</script>
+</body></html>
