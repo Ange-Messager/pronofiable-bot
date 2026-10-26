@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<!DOCTYPE html><html><head>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PRONOFIABLE App</title>
 <style>body{background:#0a0a0f;color:#fff;font-family:sans-serif;padding:15px;margin:0}h1{color:#d4af37}.card{background:#1a1a24;padding:15px;border-radius:12px;margin-top:15px;border:1px solid #2a2a3a}.btn{background:#d4af37;color:#000;width:100%;padding:15px;border:none;border-radius:10px;font-weight:900;margin-top:10px;font-size:16px}</style></head>
 <body>
